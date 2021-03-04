@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Abusive Language Detection</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Abusive Language Detection</h1>
+     <h3> Enter the text to check if it contains abusive language</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<!--<input type="text" name="enginesize" placeholder="Engine Size" required="required" />-->
+        <!--<input type="text" name="cylinders" placeholder="Cylinders" required="required" /> -->
+		<input type="text" name="fuel" placeholder="Enter the text" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   
+ </div>
+
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  
+
+</body>
+</html>
